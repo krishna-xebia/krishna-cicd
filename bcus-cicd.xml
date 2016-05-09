@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.4.4">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/krishna-xebia/ruby-app</url>
+        <credentialsId>6ecdbf26-115e-4889-adf6-d5d0a31fe1a0</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <com.cloudbees.jenkins.GitHubPushTrigger plugin="github@1.19.0">
+      <spec></spec>
+    </com.cloudbees.jenkins.GitHubPushTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders/>
+  <publishers>
+    <org.jenkinsci.plugins.awsbeanstalkpublisher.AWSEBPublisher plugin="aws-beanstalk-publisher-plugin@1.6.0">
+      <extensions>
+        <org.jenkinsci.plugins.awsbeanstalkpublisher.extensions.AWSEBElasticBeanstalkSetup>
+          <credentialsString>krishna : AKIAJMKT3CK3EEKVIJRA</credentialsString>
+          <credentialsText></credentialsText>
+          <awsRegion>US_EAST_1</awsRegion>
+          <applicationName>My First Elastic Beanstalk Application</applicationName>
+          <versionLabelFormat>${GIT_COMMIT}-${BUILD_TAG}</versionLabelFormat>
+          <failOnError>false</failOnError>
+          <awsRegionText>us-east-1</awsRegionText>
+          <extensions>
+            <org.jenkinsci.plugins.awsbeanstalkpublisher.extensions.AWSEBS3Setup>
+              <bucketName>bcus-assignment</bucketName>
+              <keyPrefix>deploy</keyPrefix>
+              <rootObject>.</rootObject>
+              <includes></includes>
+              <excludes></excludes>
+              <overwriteExistingFile>false</overwriteExistingFile>
+            </org.jenkinsci.plugins.awsbeanstalkpublisher.extensions.AWSEBS3Setup>
+          </extensions>
+          <envLookup>
+            <org.jenkinsci.plugins.awsbeanstalkpublisher.extensions.envlookup.ByName>
+              <envNameList>
+                <string>Bcus-env</string>
+              </envNameList>
+            </org.jenkinsci.plugins.awsbeanstalkpublisher.extensions.envlookup.ByName>
+          </envLookup>
+        </org.jenkinsci.plugins.awsbeanstalkpublisher.extensions.AWSEBElasticBeanstalkSetup>
+      </extensions>
+    </org.jenkinsci.plugins.awsbeanstalkpublisher.AWSEBPublisher>
+  </publishers>
+  <buildWrappers/>
+</project>
