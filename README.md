@@ -12,7 +12,7 @@ Download the plugins and update the jenkins plugin
 
 Create the new project from jenkins-cli 
 
-Fetch the code from github with the help github plugin and webhook
+Fetch the code from github on every commit and deploy to AWS ElasticBeanStalk
 
 Downtime of infra will be zero, elastic beanstalk deployment with one server at a time
 
