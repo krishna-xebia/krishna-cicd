@@ -1,4 +1,4 @@
-Autometic CICD Pipeline:
+Automatic CICD Pipeline:
 
 Automation Script: 
 
