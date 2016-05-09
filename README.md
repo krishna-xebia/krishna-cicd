@@ -6,9 +6,13 @@ name: jenkins.sh
 
 How its work:
 
+Download the plugins and install it jenkins
+
+Create the new project from jenkins-cli 
+
 Fetch the code from github with the help github plugin and web hook
 
-downtime will be zero, elastic beanstalk deployment with one server at a time
+Downtime will be zero, elastic beanstalk deployment with one server at a time
 
 As per the security have removed AWS access key / secret key and git password.
 
