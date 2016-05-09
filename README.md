@@ -1,6 +1,7 @@
 Autometic CICD Pipeline:
 
 Automation Script: 
+
 name: sh jenkins.sh
 
 How its work:
