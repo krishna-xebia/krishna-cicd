@@ -18,6 +18,8 @@ Downtime of infra will be zero, elastic beanstalk deployment with one server at 
 
 As per the security have removed AWS access key / secret key and git password.
 
+Monitoring using cloudwatch and health dashboard
+
 Adding AWS Securty Keys :
 
 http://<jenkinsurl:8080>/configure
